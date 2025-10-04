@@ -7,54 +7,73 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Handle newsletter subscription
     console.log('Newsletter subscription:', email);
     alert('Thank you for subscribing to our newsletter!');
     setEmail('');
   };
 
-  const services = [
+  const stats = [
+    { number: '50+', label: 'Research Projects' },
+    { number: '15+', label: 'International Patents' },
+    { number: '200+', label: 'Scientific Publications' },
+    { number: '5M+', label: 'Patients Benefited' }
+  ];
+
+  const applications = [
     {
       id: 1,
-      title: 'Strategic Raw Materials',
-      description: 'Securing critical minerals and resources essential for the clean energy transition.',
-      icon: '⚡',
+      title: 'Enhanced Bioavailability',
+      description: 'Nano-sized herbal formulations significantly improve absorption and therapeutic efficacy while reducing dosage frequency.',
+      icon: '📈',
       image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80'
     },
     {
       id: 2,
-      title: 'Sustainable Energy Solutions',
-      description: 'Developing innovative renewable energy projects for a sustainable future.',
-      icon: '🌱',
-      image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80'
+      title: 'Targeted Drug Delivery',
+      description: 'Precision targeting of active herbal constituents to specific cells or tissues for maximized therapeutic impact.',
+      icon: '🎯',
+      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80'
     },
     {
       id: 3,
-      title: 'Arctic Innovation',
-      description: 'Leveraging Arctic resources with cutting-edge technology and environmental stewardship.',
-      icon: '❄️',
+      title: 'Green Synthesis',
+      description: 'Eco-friendly nanoparticle production using herbal extracts as reducing and stabilizing agents.',
+      icon: '🌱',
       image: 'https://images.unsplash.com/photo-1518837695005-2083093d35e0?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80'
     }
   ];
 
-  const stats = [
-    { number: '50+', label: 'Projects Completed' },
-    { number: '15+', label: 'Countries' },
-    { number: '200+', label: 'Expert Team' },
-    { number: '5M+', label: 'Tons CO2 Reduced' }
+  const researchAreas = [
+    {
+      title: 'Metal-Herb Nanocomplexes',
+      description: 'Development of gold, silver, and iron nanoparticles synthesized using medicinal plant extracts for enhanced therapeutic applications.',
+      points: ['Gold Nanoparticles', 'Silver Antimicrobials', 'Iron Oxide Carriers']
+    },
+    {
+      title: 'Ayurvedic Bhasmas',
+      description: 'Modern scientific validation of ancient Ayurvedic nanomedicines (Bhasmas) with proven nano-scale structures and therapeutic efficacy.',
+      points: ['Traditional Knowledge', 'Scientific Validation', 'Nano-Scale Characterization']
+    },
+    {
+      title: 'Personalized Phytotherapy',
+      description: 'Tailored nano-herbal formulations based on individual genetic profiles and specific health conditions for optimized treatment outcomes.',
+      points: ['Genetic Profiling', 'Custom Formulations', 'Precision Medicine']
+    }
   ];
 
   return (
     <div>
-      {/* Hero Carousel Section - Replaces original hero */}
+      {/* Hero Carousel Section */}
       <ImageCarousel />
 
-      {/* Rest of your existing sections */}
+      {/* Stats Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat, index) => (
               <div key={index} className="p-4">
-                <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">{stat.number}</div>
+                <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">{stat.number}</div>
                 <div className="text-gray-600 font-medium">{stat.label}</div>
               </div>
             ))}
@@ -62,39 +81,56 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Services Section with hover animations */}
+      {/* Introduction Section */}
       <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              What are Herbonanoceuticals?
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Herbonanoceuticals represent the revolutionary convergence of ancient herbal wisdom with cutting-edge nanotechnology. 
+              These are engineered nanomaterials synthesized using medicinal plant resources, designed to enhance the therapeutic potential 
+              of herbal medicines while overcoming limitations of conventional herbal formulations through improved bioavailability, 
+                  targeted delivery, and reduced side effects:cite[1]:cite[4].
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Key Applications Section */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Core Services</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Key Applications & Benefits</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Comprehensive energy solutions driving the transition to a sustainable future
+              Transforming herbal therapeutics through nanotechnology innovation
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map(service => (
+            {applications.map(app => (
               <div 
-                key={service.id} 
+                key={app.id} 
                 className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group"
               >
                 <div className="relative overflow-hidden">
                   <img 
-                    src={service.image} 
-                    alt={service.title}
+                    src={app.image} 
+                    alt={app.title}
                     className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
+                  <div className="absolute inset-0 bg-green-600/20 group-hover:bg-green-600/10 transition-all duration-300"></div>
                 </div>
                 <div className="p-6">
                   <div className="text-3xl mb-4 transition-transform duration-300 group-hover:scale-110 inline-block">
-                    {service.icon}
+                    {app.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                    {service.title}
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-green-600 transition-colors duration-300">
+                    {app.title}
                   </h3>
-                  <p className="text-gray-600">{service.description}</p>
-                  <a href="/contact" className="inline-block mt-4 text-blue-600 font-medium hover:text-blue-700 transition-all duration-300 transform group-hover:translate-x-2">
+                  <p className="text-gray-600">{app.description}</p>
+                  <a href="/research" className="inline-block mt-4 text-green-600 font-medium hover:text-green-700 transition-all duration-300 transform group-hover:translate-x-2">
                     Learn more →
                   </a>
                 </div>
@@ -104,40 +140,72 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Additional Image Gallery Section */}
-      <section className="py-16 bg-white">
+      {/* Research Areas Section */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
-            Our Energy Projects
+            Cutting-Edge Research Areas
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80",
-              "https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80",
-              "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=80"
-            ].map((image, index) => (
-              <div 
-                key={index} 
-                className="relative overflow-hidden rounded-lg shadow-lg group cursor-pointer"
-              >
-                <img 
-                  src={image} 
-                  alt={`Energy project ${index + 1}`}
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
-                  <div className="p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="text-xl font-semibold mb-2">Project {index + 1}</h3>
-                    <p className="text-sm opacity-90">Sustainable energy solution</p>
-                  </div>
-                </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {researchAreas.map((area, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-md border-l-4 border-green-500 hover:shadow-lg transition-all duration-300">
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">{area.title}</h3>
+                <p className="text-gray-600 mb-4">{area.description}</p>
+                <ul className="space-y-2">
+                  {area.points.map((point, idx) => (
+                    <li key={idx} className="flex items-center text-green-700">
+                      <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Rest of your existing CTA and Newsletter sections */}
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-green-700 to-green-800 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Join the Herbonanoceutical Revolution</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Be part of the future where ancient herbal wisdom meets cutting-edge nanotechnology for better healthcare solutions.
+          </p>
+          <a href="/contact" className="inline-block bg-white text-green-700 font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-100 transition duration-300">
+            COLLABORATE WITH US
+          </a>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 max-w-3xl text-center">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Stay Updated on Latest Research</h2>
+          <p className="text-gray-600 mb-8">
+            Subscribe to our newsletter for the latest breakthroughs in green nanotechnology and nano phyto-therapeutics.
+          </p>
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition duration-200"
+              required
+            />
+            <button
+              type="submit"
+              className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 whitespace-nowrap"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </section>
     </div>
   );
 };
