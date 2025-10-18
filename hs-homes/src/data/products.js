@@ -113,6 +113,6 @@ export const products = [
     },
     features: ["Non-Stick", "Even Heating", "Perfect for Rotis", "Easy Clean"],
     inStock: true,
-    tags: ["roti", "flatbread", "indian"]
+    tags: ["roti", "flatbread", "india"]
   }
 ];
